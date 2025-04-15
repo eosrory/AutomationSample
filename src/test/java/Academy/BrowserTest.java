@@ -18,6 +18,11 @@ public class BrowserTest {
 	{
 		System.out.println("Hello Guys");
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless"); // run in headless mode
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		WebDriver driver = new ChromeDriver(options);
 		WebDriver driver =new ChromeDriver();
 		driver.get("https://roryliu-dce7afg7fsgaf6h5.centralus-01.azurewebsites.net/webapp");
 		String text =driver.findElement(By.cssSelector("h1")).getText();
